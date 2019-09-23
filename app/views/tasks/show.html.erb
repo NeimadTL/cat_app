@@ -1,19 +1,12 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Content:</strong>
-  <%= @task.content %>
-</p>
-
-<p>
-  <strong>Completed:</strong>
-  <%= @task.completed %>
-</p>
-
-<p>
-  <strong>Label:</strong>
-  <%= @task.label %>
-</p>
+<div class="card text-white bg-info mb-3" style="max-width: 18rem;">
+  <div class="card-header"><%= @task.label %></div>
+  <div class="card-body">
+    <h5 class="card-title"><%= @task.content %></h5>
+    <p class="card-text">Action done ? <%= @task.completed %></p>
+  </div>
+</div>
 
 <%= link_to 'Edit', edit_task_path(@task) %> |
 <%= link_to 'Back', tasks_path %>
