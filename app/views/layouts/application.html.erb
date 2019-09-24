@@ -5,6 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
@@ -30,11 +31,23 @@
             <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
           </li>
         </ul>
+
+
+        <% if user_signed_in? %>
+          <%= link_to "sign out", destroy_user_session_path, method: :delete,
+            class: 'text-blue nav-link' %>
+        <% else %>
+          <%= link_to "sign in", new_user_session_path, class: 'text-blue nav-link' %>
+          <%= link_to "sign up", new_user_registration_path, class: 'text-blue nav-link' %>
+        <% end %>
+
       </div>
     </nav>
 
     <div class="container">
     <!-- Content here -->
+      <p class="notice"><%= notice %></p>
+       <p class="alert"><%= alert %></p>
       <%= yield %>
     </div>
 
