@@ -62,11 +62,16 @@ class TasksController < ApplicationController
     end
   end
 
+  def current_user_tasks
+    @tasks = Task.where(user_id: current_user.id)
+  end
+
   private
     # Use callbacks to share common setup or constraints between actions.
     def set_task
       @task = Task.find(params[:id])
     end
+
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def task_params
