@@ -2,24 +2,7 @@
 
 <h1>Tasks</h1>
 
-<div class="card-deck">
-  <% @tasks.each do |task| %>
-    <div class="card">
-      <!-- <img src="..." class="card-img-top" alt="..."> -->
-      <div class="card-header"><%= task.label %></div>
-      <div class="card-body"><p class="card-text"><%= task.content %></p></div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">Completed ? <%= task.completed %></li>
-        <li class="list-group-item">
-          <%= link_to 'Show', task %>
-          <%= link_to 'Edit', edit_task_path(task) %>
-          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </li>
-        <li class="list-group-item">created by : <%= task.user.email %></li>
-      </ul>
-    </div>
-  <% end %>
-</div>
+<%= render 'tasks_list', tasks: @tasks %>
 
 <br>
 

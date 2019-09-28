@@ -1,0 +1,18 @@
+<div class="card-deck">
+  <% @tasks.each do |task| %>
+    <div class="card" style="min-width: 18rem; max-width: 18rem;"> <!-- margin-bottom: 50px; -->
+      <!-- <img src="..." class="card-img-top" alt="..."> -->
+      <div class="card-header"><%= task.label %></div>
+      <div class="card-body"><p class="card-text"><%= task.content %></p></div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item">Completed ? <%= task.completed %></li>
+        <li class="list-group-item">created by : <%= task.user.email %></li>
+        <li class="list-group-item">
+          <%= link_to 'Show', task %>
+          <%= link_to 'Edit', edit_task_path(task) %>
+          <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>
+        </li>
+      </ul>
+    </div>
+  <% end %>
+</div>
