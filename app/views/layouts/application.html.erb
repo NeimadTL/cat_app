@@ -18,11 +18,11 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
         <ul class="navbar-nav">
-          <% if user_signed_in? %>
-            <li class="nav-item">
-              <a class="nav-link" href="<%= my_tasks_path %>">My Actions</a>
-            </li>
-          <% end %>
+          <li class="nav-item">
+            <a class="nav-link" href="<%= tasks_path %>">
+              <%= user_signed_in? ? "My Actions" : "All Actions" %>
+            </a>
+          </li>
           <li class="nav-item">
             <a class="nav-link" href="#">Features</a>
           </li>

@@ -8,6 +8,7 @@
         <li class="list-group-item">Completed ? <%= task.completed %></li>
         <li class="list-group-item">created by : <%= task.user.email %></li>
         <li class="list-group-item">
+          <%= link_to 'Add Collaborator', new_task_collaboration_path(task) %>
           <%= link_to 'Show', task %>
           <%= link_to 'Edit', edit_task_path(task) %>
           <%= link_to 'Destroy', task, method: :delete, data: { confirm: 'Are you sure?' } %>

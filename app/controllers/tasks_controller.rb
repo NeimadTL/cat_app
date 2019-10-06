@@ -6,6 +6,8 @@ class TasksController < ApplicationController
   # GET /tasks.json
   def index
     @tasks = Task.all
+    if current_user
+    @tasks = Task.where(user_id: current_user.id)
   end
 
   # GET /tasks/1
@@ -60,10 +62,6 @@ class TasksController < ApplicationController
       format.html { redirect_to tasks_url, notice: 'Task was successfully destroyed.' }
       format.json { head :no_content }
     end
-  end
-
-  def current_user_tasks
-    @tasks = Task.where(user_id: current_user.id)
   end
 
   private
