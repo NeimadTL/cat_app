@@ -6,5 +6,5 @@ class User < ApplicationRecord
 
   has_many :tasks
   has_many :collaborations
-  has_many :collaborators, through: :collaborations, class_name: "User"
+  has_many :collaborators, through: :collaborations, class_name: "User", source: :user
 end

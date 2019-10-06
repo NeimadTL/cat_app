@@ -5,6 +5,10 @@
   <div class="card-body">
     <h5 class="card-title"><%= @task.content %></h5>
     <p class="card-text">Action done ? <%= @task.completed %></p>
+    <h5 class="card-title">Collaborators :</h5>
+    <% @task.collaborators.each do |collaborator| %>
+      <%= collaborator.email %>
+    <% end %>
   </div>
 </div>
 

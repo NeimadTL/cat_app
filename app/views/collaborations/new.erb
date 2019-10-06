@@ -1,1 +1,7 @@
 <h1>Add your collaborators</h1>
+
+<%= simple_form_for @collaboration, html: { class: 'form-inline' }, url: task_collaborations_path do |f| %>
+  <%= f.label :user_id, "Select Collaborator", class: "form-check-label" %>
+  <%= f.collection_select :user_id, User.all.reject { |user| user.id == current_user.id }, :id, :email %>
+  <%= f.submit "Submit", class: 'btn btn-primary' %>
+<% end %>

@@ -28,6 +28,7 @@ gem 'jquery-rails'
 
 gem 'devise'
 gem 'pg'
+gem 'simple_form'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
