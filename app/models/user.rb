@@ -5,4 +5,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :tasks
+  has_many :collaborations
+  has_many :collaborators, through: :collaborations, class_name: "User"
 end
