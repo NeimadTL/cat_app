@@ -6,9 +6,9 @@ class CollaborationsController < ApplicationController
 
   def create
     @collaboration = Collaboration.new(collaboration_params.merge(task_id: params[:task_id]))
-    new_collaborator = User.find(collaboration_params[:user_id])
-    puts "new_collaborator --> #{new_collaborator.inspect}"
-    current_user.add_collaborator(new_collaborator)
+    # new_collaborator = User.find(collaboration_params[:user_id])
+    # puts "new_collaborator --> #{new_collaborator.inspect}"
+    # current_user.add_collaborator(new_collaborator)
     respond_to do |format|
       if @collaboration.save
         format.html { redirect_to tasks_path, notice: 'collaborator was successfully added.' }
